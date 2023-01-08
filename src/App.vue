@@ -2,99 +2,99 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-08 17:27:54
- * @LastEditTime: 2023-01-08 17:42:04
+ * @LastEditTime: 2023-01-08 18:08:56
  * @LastEditors: NMTuan
  * @Description: 
  * @FilePath: \bitwarden_data_de_duplication\src\App.vue
 -->
-<script setup>
-import { RouterLink, RouterView } from "vue-router";
-import HelloWorld from "./components/HelloWorld.vue";
-</script>
 
 <template>
-  <header class="bg-red-200">
-    <img
-      alt="Vue logo"
-      class="logo"
-      src="@/assets/logo.svg"
-      width="125"
-      height="125"
-    />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
+  <div class="h-full flex">
+    <!-- menu -->
+    <div
+      class="fixed z-10 h-full overflow-hidden w-0 bg-cool-gray-100/90 border-r-8 border-cool-gray-300/50 transition-all duration-500 hover:(w-64 border-r)"
+      :class="menuClass"
+    >
+      <div class="w-64 h-full">
+        <simplebar class="simplebar h-full">
+          <LayoutMenuVue />
+        </simplebar>
+      </div>
     </div>
-  </header>
-
-  <RouterView />
+    <!-- main -->
+    <div
+      class="flex-1 h-full overflow-hidden ml-0 transition-all duration-500"
+      :class="mainClass"
+    >
+      <simplebar class="simplebar h-full" ref="mainScroll">
+        <div
+          class="flex items-center justify-between p-4 leading-none bg-cool-gray-50/50 backdrop-blur sticky left-0 top-0 right-0 z-10"
+        >
+          <div class="flex items-center">
+            <LayoutPinVuew v-model:pin="pin" />
+            <div class="ml-4 flex items-center">
+              <LayoutGuideVue />
+            </div>
+          </div>
+          <LayoutSocialVue />
+        </div>
+        <div class="w-85% max-w-6xl mx-auto mt-6">
+          <RouterView v-slot="{ Component }">
+            <component :is="Component" ref="mainView"></component>
+          </RouterView>
+        </div>
+      </simplebar>
+    </div>
+  </div>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
+<script setup>
+import { ref, computed } from "vue";
+import simplebar from "simplebar-vue";
+
+import LayoutMenuVue from "./components/LayoutMenu.vue";
+import LayoutGuideVue from "./components/LayoutGuide.vue";
+import LayoutPinVuew from "./components/LayoutPin.vue";
+import LayoutSocialVue from "./components/LayoutSocial.vue";
+
+const pin = ref(localStorage.getItem("pin") === "1" ? true : false);
+const menuClass = computed(() => {
+  if (pin.value) {
+    return "lg:(w-64 bg-cool-gray-200/50 !border-none)";
+  } else {
+    return "";
+  }
+});
+const mainClass = computed(() => {
+  if (pin.value) {
+    return "lg:ml-64";
+  } else {
+    return "";
+  }
+});
+</script>
+
+<style lang="scss">
+html,
+body,
+#app {
+  @apply text-base text-cool-gray-800 bg-cool-gray-50 h-full overflow-hidden;
+}
+*:focus-visible {
+  @apply outline-none;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
+.simplebar {
+  &:hover {
+    .simplebar-track {
+      @apply bg-black/5;
+    }
   }
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
+  .simplebar-scrollbar {
+    &:before {
+      @apply bg-black/50;
+    }
   }
 }
 </style>

@@ -2,7 +2,7 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-08 17:27:54
- * @LastEditTime: 2023-01-08 17:42:37
+ * @LastEditTime: 2023-01-08 18:02:56
  * @LastEditors: NMTuan
  * @Description:
  * @FilePath: \bitwarden_data_de_duplication\src\main.js
@@ -14,6 +14,7 @@ import App from "./App.vue";
 import router from "./router";
 
 import "@unocss/reset/tailwind.css";
+import "simplebar/dist/simplebar.min.css";
 import "uno.css";
 
 const app = createApp(App);
