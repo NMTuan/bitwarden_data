@@ -1,5 +1,13 @@
+/*
+ * @Author: NMTuan
+ * @Email: NMTuan@qq.com
+ * @Date: 2023-01-08 17:27:54
+ * @LastEditTime: 2023-01-09 13:43:32
+ * @LastEditors: NMTuan
+ * @Description:
+ * @FilePath: \bitwarden_data_de_duplication\src\router\index.js
+ */
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -7,14 +15,11 @@ const router = createRouter({
     {
       path: "/",
       name: "home",
-      component: HomeView,
+      component: () => import("../views/HomeView.vue"),
     },
     {
       path: "/about",
       name: "about",
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () => import("../views/AboutView.vue"),
     },
   ],

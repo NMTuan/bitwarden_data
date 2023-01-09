@@ -2,7 +2,7 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-08 17:27:54
- * @LastEditTime: 2023-01-08 18:08:56
+ * @LastEditTime: 2023-01-09 16:33:52
  * @LastEditors: NMTuan
  * @Description: 
  * @FilePath: \bitwarden_data_de_duplication\src\App.vue
@@ -28,7 +28,7 @@
     >
       <simplebar class="simplebar h-full" ref="mainScroll">
         <div
-          class="flex items-center justify-between p-4 leading-none bg-cool-gray-50/50 backdrop-blur sticky left-0 top-0 right-0 z-10"
+          class="flex items-center justify-between h-14 px-4 leading-none bg-cool-gray-50/50 backdrop-blur sticky left-0 top-0 right-0 z-10"
         >
           <div class="flex items-center">
             <LayoutPinVuew v-model:pin="pin" />
@@ -38,7 +38,7 @@
           </div>
           <LayoutSocialVue />
         </div>
-        <div class="w-85% max-w-6xl mx-auto mt-6">
+        <div class="w-85% max-w-6xl mx-auto mt-6 mb-32">
           <RouterView v-slot="{ Component }">
             <component :is="Component" ref="mainView"></component>
           </RouterView>
@@ -50,6 +50,8 @@
 
 <script setup>
 import { ref, computed } from "vue";
+import { useDataStore } from "./stores/data";
+import { useRouter } from "vue-router";
 import simplebar from "simplebar-vue";
 
 import LayoutMenuVue from "./components/LayoutMenu.vue";
@@ -57,6 +59,8 @@ import LayoutGuideVue from "./components/LayoutGuide.vue";
 import LayoutPinVuew from "./components/LayoutPin.vue";
 import LayoutSocialVue from "./components/LayoutSocial.vue";
 
+const router = useRouter();
+const dataStore = useDataStore();
 const pin = ref(localStorage.getItem("pin") === "1" ? true : false);
 const menuClass = computed(() => {
   if (pin.value) {
@@ -72,6 +76,10 @@ const mainClass = computed(() => {
     return "";
   }
 });
+
+if (dataStore.type === "") {
+  router.replace({ name: "home" });
+}
 </script>
 
 <style lang="scss">

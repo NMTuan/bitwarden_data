@@ -2,7 +2,7 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-08 17:47:14
- * @LastEditTime: 2023-01-08 18:16:03
+ * @LastEditTime: 2023-01-09 16:34:59
  * @LastEditors: NMTuan
  * @Description: 
  * @FilePath: \bitwarden_data_de_duplication\src\components\LayoutMenu.vue
@@ -28,8 +28,6 @@
         </router-link>
       </template>
     </template>
-
-    <p v-for="i in 100">{{ i }}</p>
   </div>
 </template>
 <script setup>
@@ -37,7 +35,7 @@ import { ref } from "vue";
 
 const menus = ref([
   {
-    label: "xxx",
+    label: "Bitwarden Data",
     children: [
       { label: "home", to: { name: "home" } },
       { label: "about", to: { name: "about" } },
