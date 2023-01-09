@@ -2,7 +2,7 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-08 17:27:54
- * @LastEditTime: 2023-01-09 16:44:42
+ * @LastEditTime: 2023-01-09 17:18:55
  * @LastEditors: NMTuan
  * @Description: 
  * @FilePath: \bitwarden_data_de_duplication\src\views\HomeView.vue
@@ -73,16 +73,15 @@
       </dd>
     </dl>
     <pre>
-# 克隆项目
+<span># 克隆项目</span>
 git clone https://github.com/NMTuan/bitwarden_data.git
 cd bitwarden_data
 
-# 初始化依赖
-yarn install # or npm install 
+<span># 初始化依赖</span>
+yarn install <span># or npm install</span>
 
-# 启动
-yarn dev # or npm run dev</pre
-    >
+<span># 启动</span>
+yarn dev <span># or npm run dev</span></pre>
 
     <h2>## 支持</h2>
     <p>
@@ -90,8 +89,9 @@ yarn dev # or npm run dev</pre
       <a href="https://github.com/NMTuan/bitwarden_data" target="_blank">
         GitHub Star
       </a>
-      <a href="https://afdian.net/a/nmtuan/plan" target="_blank">爱发电</a>
+      <a href="https://afdian.net/a/muyi_dev/plan" target="_blank">爱发电</a>
       <a href="https://paypal.me/muyi86" target="_blank">PayPal me</a>
+      。
     </p>
   </div>
 </template>
@@ -104,9 +104,6 @@ const dataStore = useDataStore();
 <style scoped lang="scss">
 h1 {
   @apply text-2xl font-bold mb-2;
-}
-p {
-  // @apply flex items-center;
 }
 a {
   @apply mx-2 text-blue-400;
@@ -139,7 +136,10 @@ li {
 }
 pre {
   @apply block rounded p-4 my-2;
-  @apply bg-cool-gray-900 text-cool-gray-400;
-  @apply text-sm leading-6;
+  @apply bg-cool-gray-800;
+  @apply text-sm leading-6 text-blue-300;
+  span {
+    @apply text-gray-400;
+  }
 }
 </style>
