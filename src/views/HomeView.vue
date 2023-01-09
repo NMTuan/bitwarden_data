@@ -2,7 +2,7 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-08 17:27:54
- * @LastEditTime: 2023-01-09 17:18:55
+ * @LastEditTime: 2023-01-09 17:30:32
  * @LastEditors: NMTuan
  * @Description: 
  * @FilePath: \bitwarden_data_de_duplication\src\views\HomeView.vue
@@ -36,20 +36,35 @@
     <p>首先，需要你导出 Bitwarden 数据为 json 格式。</p>
     <p>然后在下方选择你的 json 数据文件。</p>
     <CommonChooseFile
-      class="flex justify-between bg-white border w-full my-2 px-4 py-3 rounded hover:(border-cool-gray-300)"
+      class="flex items-center justify-between bg-white border w-full my-2 px-4 py-3 rounded overflow-hidden hover:(border-cool-gray-300)"
     >
-      <div class="flex items-center">
+      <div class="flex items-center overflow-hidden">
         <div
-          class="i-ri-folder-open-line text-2xl mr-2 text-cool-gray-300"
+          class="flex-shrink-0 i-ri-folder-open-line text-2xl mr-2 text-cool-gray-300"
         ></div>
-        <div class="text-cool-gray-400">Choose the data file</div>
+        <div class="text-cool-gray-400 truncate">
+          {{ dataStore.file?.name || "Choose the data file" }}
+        </div>
       </div>
+      <!-- loading -->
       <div
-        class="flex items-center"
-        v-if="dataStore.type === 'Password protected'"
+        v-if="dataStore.loading"
+        class="i-ri-loader-5-line animate-spin text-2xl"
+      ></div>
+      <!-- error -->
+      <div
+        class="flex items-center flex-shrink-0"
+        v-else-if="dataStore.type === 'Password protected'"
       >
         <div class="i-ri-error-warning-line text-2xl mr-2 text-red-500"></div>
         Password protected is not supported
+      </div>
+      <!-- success -->
+      <div
+        class="flex items-center"
+        v-else-if="['JSON', 'Account backup'].includes(dataStore.type)"
+      >
+        <div class="i-ri-check-line text-2xl text-green-500"></div>
       </div>
     </CommonChooseFile>
     <p>如果数据加载成功，你将会看到页面头部显示的相关信息。</p>
