@@ -2,7 +2,7 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-08 17:49:08
- * @LastEditTime: 2023-01-09 14:19:08
+ * @LastEditTime: 2023-01-11 21:57:38
  * @LastEditors: NMTuan
  * @Description: 
  * @FilePath: \bitwarden_data_de_duplication\src\components\LayoutGuide.vue
@@ -10,7 +10,9 @@
 <template>
   <div
     class="flex items-center gap-4 text-sm"
-    v-if="!['Password protected', ''].includes(dataStore.type)"
+    v-if="
+      !['Password protected', 'Account backup', ''].includes(dataStore.type)
+    "
   >
     <!-- file -->
     <CommonChooseFile
@@ -26,7 +28,7 @@
       {{ dataStore.type }}
     </div>
 
-    <template v-if="dataStore.type !== 'Password protected'">
+    <template v-if="dataStore.type === 'JSON'">
       <!-- folder -->
       <div class="item">
         <div class="i-ri-folder-2-line"></div>

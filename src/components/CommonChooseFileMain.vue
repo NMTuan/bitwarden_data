@@ -2,7 +2,7 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-10 11:58:52
- * @LastEditTime: 2023-01-10 12:00:12
+ * @LastEditTime: 2023-01-11 21:57:08
  * @LastEditors: NMTuan
  * @Description: 
  * @FilePath: \bitwarden_data_de_duplication\src\components\CommonChooseFileMain.vue
@@ -27,15 +27,17 @@
     <!-- error -->
     <div
       class="flex items-center flex-shrink-0"
-      v-else-if="dataStore.type === 'Password protected'"
+      v-else-if="
+        ['Account backup', 'Password protected'].includes(dataStore.type)
+      "
     >
       <div class="i-ri-error-warning-line text-2xl mr-2 text-red-500"></div>
-      Password protected is not supported
+      Only unprotected json format is supported
     </div>
     <!-- success -->
     <div
       class="flex items-center"
-      v-else-if="['JSON', 'Account backup'].includes(dataStore.type)"
+      v-else-if="['JSON'].includes(dataStore.type)"
     >
       <div class="i-ri-check-line text-2xl text-green-500"></div>
     </div>
