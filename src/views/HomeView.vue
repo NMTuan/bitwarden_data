@@ -2,7 +2,7 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-08 17:27:54
- * @LastEditTime: 2023-01-09 17:30:32
+ * @LastEditTime: 2023-01-11 14:17:01
  * @LastEditors: NMTuan
  * @Description: 
  * @FilePath: \bitwarden_data_de_duplication\src\views\HomeView.vue
@@ -24,10 +24,17 @@
       下载源码自行搭建使用。
     </p>
 
+    <h2>## 背景</h2>
+    <p>正常情况下 Bitwarden 中的数据是不会重复的。</p>
+    <p>但由于我在多种密码管理软件中做过数据迁移，导致出现重复数据。</p>
+    <p>
+      虽然重复数据不怎么影响使用，但终究是不舒服。趁着年前有点时间，就有了这个项目。
+    </p>
+
     <h2>## 功能</h2>
     <ul>
       <li class="done">数据的导入导出</li>
-      <li>重复数据的处理</li>
+      <li class="done">重复数据的处理</li>
       <li>数据的列表展示</li>
       <li>数据编辑与删除</li>
     </ul>
@@ -36,8 +43,11 @@
     <p>首先，需要你导出 Bitwarden 数据为 json 格式。</p>
     <p>然后在下方选择你的 json 数据文件。</p>
     <CommonChooseFileMain />
-    <p>如果数据加载成功，你将会看到页面头部显示的相关信息。</p>
-    <p>最后，在左侧菜单中选择你想要操作的功能即可。</p>
+    <p>如果数据加载成功，你将会在页面正上方看到相关数据信息。</p>
+    <p>这时候你可以在左侧菜单中选择你想要的功能了。</p>
+    <p>
+      最后，处理完数据之后，记得点击页面头部的 download 按钮，下载处理后的数据。
+    </p>
 
     <h2>## 自建</h2>
     <dl>
