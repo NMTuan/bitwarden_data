@@ -2,7 +2,7 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-09 09:33:57
- * @LastEditTime: 2023-01-11 14:06:34
+ * @LastEditTime: 2023-01-11 14:33:25
  * @LastEditors: NMTuan
  * @Description:
  * @FilePath: \bitwarden_data_de_duplication\src\stores\data.js
@@ -52,10 +52,28 @@ export const useDataStore = defineStore("data", () => {
     return folders.value.find((folder) => folder.id === id);
   };
 
+  // 处理 localStorage
+  const lsFile = localStorage.getItem("bitwarden_file");
+  const lsData = localStorage.getItem("bitwarden_data");
+  if (lsFile && lsData) {
+    file.value = JSON.parse(lsFile);
+    data.value = JSON.parse(lsData);
+  }
+
+  // 监听文件变化，加载文件数据
   watch(file, (val) => {
     if (!val) {
       return {};
     }
+
+    // localStorage 保存下文件相关信息
+    localStorage.setItem(
+      "bitwarden_file",
+      JSON.stringify({
+        name: val.name,
+      })
+    );
+
     const reader = new FileReader();
     reader.readAsText(val, "utf8"); //gbk编码
     loading.value = true;
@@ -64,6 +82,17 @@ export const useDataStore = defineStore("data", () => {
       data.value = JSON.parse(this.result);
     };
   });
+
+  // 监听数据变化，保存到 logcalStorage
+  watch(
+    data,
+    (val) => {
+      localStorage.setItem("bitwarden_data", JSON.stringify(val));
+    },
+    {
+      deep: true,
+    }
+  );
 
   return {
     file,

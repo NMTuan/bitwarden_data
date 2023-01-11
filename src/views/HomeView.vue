@@ -2,7 +2,7 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-08 17:27:54
- * @LastEditTime: 2023-01-11 14:17:01
+ * @LastEditTime: 2023-01-11 14:35:18
  * @LastEditors: NMTuan
  * @Description: 
  * @FilePath: \bitwarden_data_de_duplication\src\views\HomeView.vue
@@ -35,6 +35,7 @@
     <ul>
       <li class="done">数据的导入导出</li>
       <li class="done">重复数据的处理</li>
+      <li class="done">浏览器数据缓存，方便下次继续处理</li>
       <li>数据的列表展示</li>
       <li>数据编辑与删除</li>
     </ul>
