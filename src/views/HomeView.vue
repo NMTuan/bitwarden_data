@@ -35,38 +35,7 @@
     <h2>## 使用</h2>
     <p>首先，需要你导出 Bitwarden 数据为 json 格式。</p>
     <p>然后在下方选择你的 json 数据文件。</p>
-    <CommonChooseFile
-      class="flex items-center justify-between bg-white border w-full my-2 px-4 py-3 rounded overflow-hidden hover:(border-cool-gray-300)"
-    >
-      <div class="flex items-center overflow-hidden">
-        <div
-          class="flex-shrink-0 i-ri-folder-open-line text-2xl mr-2 text-cool-gray-300"
-        ></div>
-        <div class="text-cool-gray-400 truncate">
-          {{ dataStore.file?.name || "Choose the data file" }}
-        </div>
-      </div>
-      <!-- loading -->
-      <div
-        v-if="dataStore.loading"
-        class="i-ri-loader-5-line animate-spin text-2xl"
-      ></div>
-      <!-- error -->
-      <div
-        class="flex items-center flex-shrink-0"
-        v-else-if="dataStore.type === 'Password protected'"
-      >
-        <div class="i-ri-error-warning-line text-2xl mr-2 text-red-500"></div>
-        Password protected is not supported
-      </div>
-      <!-- success -->
-      <div
-        class="flex items-center"
-        v-else-if="['JSON', 'Account backup'].includes(dataStore.type)"
-      >
-        <div class="i-ri-check-line text-2xl text-green-500"></div>
-      </div>
-    </CommonChooseFile>
+    <CommonChooseFileMain />
     <p>如果数据加载成功，你将会看到页面头部显示的相关信息。</p>
     <p>最后，在左侧菜单中选择你想要操作的功能即可。</p>
 
@@ -112,27 +81,9 @@ yarn dev <span># or npm run dev</span></pre>
 </template>
 
 <script setup>
-import { useDataStore } from "../stores/data";
-import CommonChooseFile from "../components/CommonChooseFile.vue";
-const dataStore = useDataStore();
+import CommonChooseFileMain from "../components/CommonChooseFileMain.vue";
 </script>
 <style scoped lang="scss">
-h1 {
-  @apply text-2xl font-bold mb-2;
-}
-a {
-  @apply mx-2 text-blue-400;
-}
-a[target="_blank"] {
-  &::after {
-    content: " ";
-    @apply i-ri-share-box-line;
-    @apply align-super text-xs text-cool-gray-400;
-  }
-}
-h2 {
-  @apply text-lg font-bold mt-6 mb-2;
-}
 li {
   @apply flex items-center text-cool-gray-400;
   &::before {
@@ -147,14 +98,6 @@ li {
       @apply i-ri-checkbox-line;
       @apply mr-2 text-2xl text-cool-gray-400;
     }
-  }
-}
-pre {
-  @apply block rounded p-4 my-2;
-  @apply bg-cool-gray-800;
-  @apply text-sm leading-6 text-blue-300;
-  span {
-    @apply text-gray-400;
   }
 }
 </style>

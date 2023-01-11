@@ -2,7 +2,7 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-08 17:27:54
- * @LastEditTime: 2023-01-09 13:43:32
+ * @LastEditTime: 2023-01-11 13:54:45
  * @LastEditors: NMTuan
  * @Description:
  * @FilePath: \bitwarden_data_de_duplication\src\router\index.js
@@ -18,9 +18,9 @@ const router = createRouter({
       component: () => import("../views/HomeView.vue"),
     },
     {
-      path: "/about",
-      name: "about",
-      component: () => import("../views/AboutView.vue"),
+      path: "/duplicate",
+      name: "duplicate",
+      component: () => import("../views/DuplicateView.vue"),
     },
   ],
 });

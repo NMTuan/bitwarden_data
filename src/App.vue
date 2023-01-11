@@ -2,7 +2,7 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-08 17:27:54
- * @LastEditTime: 2023-01-09 16:33:52
+ * @LastEditTime: 2023-01-11 10:48:00
  * @LastEditors: NMTuan
  * @Description: 
  * @FilePath: \bitwarden_data_de_duplication\src\App.vue
@@ -38,7 +38,7 @@
           </div>
           <LayoutSocialVue />
         </div>
-        <div class="w-85% max-w-6xl mx-auto mt-6 mb-32">
+        <div class="main w-85% max-w-6xl mx-auto mt-6 mb-32">
           <RouterView v-slot="{ Component }">
             <component :is="Component" ref="mainView"></component>
           </RouterView>
@@ -49,9 +49,8 @@
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
-import { useDataStore } from "./stores/data";
-import { useRouter } from "vue-router";
+import { ref, computed, onMounted, watch } from "vue";
+import { useRoute } from "vue-router";
 import simplebar from "simplebar-vue";
 
 import LayoutMenuVue from "./components/LayoutMenu.vue";
@@ -59,9 +58,11 @@ import LayoutGuideVue from "./components/LayoutGuide.vue";
 import LayoutPinVuew from "./components/LayoutPin.vue";
 import LayoutSocialVue from "./components/LayoutSocial.vue";
 
-const router = useRouter();
-const dataStore = useDataStore();
+const route = useRoute();
+const mainScroll = ref();
+const mainView = ref();
 const pin = ref(localStorage.getItem("pin") === "1" ? true : false);
+
 const menuClass = computed(() => {
   if (pin.value) {
     return "lg:(w-64 bg-cool-gray-200/50 !border-none)";
@@ -77,9 +78,19 @@ const mainClass = computed(() => {
   }
 });
 
-if (dataStore.type === "") {
-  router.replace({ name: "home" });
-}
+onMounted(() => {
+  // 滚动监听，如果子组件有 onScroll 方法，则执行
+  mainScroll.value.scrollElement.addEventListener("scroll", () => {
+    if (mainView.value?.onScroll) {
+      mainView.value.onScroll(mainScroll.value.scrollElement);
+    }
+  });
+});
+
+// 切换路由时，重置滚动条
+watch(route, () => {
+  mainScroll.value.scrollElement.scrollTop = 0;
+});
 </script>
 
 <style lang="scss">
@@ -88,10 +99,13 @@ body,
 #app {
   @apply text-base text-cool-gray-800 bg-cool-gray-50 h-full overflow-hidden;
 }
+
+// fix simplebar 异常的 focus 效果
 *:focus-visible {
   @apply outline-none;
 }
 
+// 滚动条颜色
 .simplebar {
   &:hover {
     .simplebar-track {
@@ -102,6 +116,37 @@ body,
   .simplebar-scrollbar {
     &:before {
       @apply bg-black/50;
+    }
+  }
+}
+
+// 统一主体区域样式
+.main {
+  h1 {
+    @apply text-2xl font-bold mb-2;
+  }
+  a {
+    @apply text-blue-400;
+  }
+  a + a {
+    @apply ml-2;
+  }
+  a[target="_blank"] {
+    &::after {
+      content: " ";
+      @apply i-ri-share-box-line;
+      @apply align-super text-xs text-cool-gray-400;
+    }
+  }
+  h2 {
+    @apply text-lg font-bold mt-6 mb-2;
+  }
+  pre {
+    @apply block rounded p-4 my-2;
+    @apply bg-cool-gray-800;
+    @apply text-sm leading-6 text-blue-300;
+    span {
+      @apply text-gray-400;
     }
   }
 }

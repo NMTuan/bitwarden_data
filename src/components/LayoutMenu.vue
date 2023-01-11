@@ -2,7 +2,7 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-08 17:47:14
- * @LastEditTime: 2023-01-09 16:34:59
+ * @LastEditTime: 2023-01-11 13:54:30
  * @LastEditors: NMTuan
  * @Description: 
  * @FilePath: \bitwarden_data_de_duplication\src\components\LayoutMenu.vue
@@ -37,8 +37,8 @@ const menus = ref([
   {
     label: "Bitwarden Data",
     children: [
-      { label: "home", to: { name: "home" } },
-      { label: "about", to: { name: "about" } },
+      { label: "主页", to: { name: "home" } },
+      { label: "重复数据", to: { name: "duplicate" } },
     ],
   },
 ]);
