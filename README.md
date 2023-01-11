@@ -2,7 +2,7 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-06 10:31:33
- * @LastEditTime: 2023-01-11 21:52:38
+ * @LastEditTime: 2023-01-11 21:54:31
  * @LastEditors: NMTuan
  * @Description:
  * @FilePath: \bitwarden_data_de_duplication\README.md
@@ -58,4 +58,4 @@ yarn dev # or npm run dev
 
 ## 支持
 
-如果你觉得此项目对你有帮助，欢迎 [GitHub Star](https://github.com/NMTuan/bitwarden_data) [爱发电]([[爱发电 · 连接创作者与粉丝的会员制平台]()](https://afdian.net/a/muyi_dev/plan)) [PayPal me](https://paypal.me/muyi86) 。
+如果你觉得此项目对你有帮助，欢迎 [GitHub Star](https://github.com/NMTuan/bitwarden_data) [爱发电](https://afdian.net/a/muyi_dev/plan) [PayPal me](https://paypal.me/muyi86) 。
