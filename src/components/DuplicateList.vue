@@ -2,29 +2,22 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-10 13:01:59
- * @LastEditTime: 2023-01-11 13:56:18
+ * @LastEditTime: 2023-01-12 16:44:11
  * @LastEditors: NMTuan
  * @Description: 
  * @FilePath: \bitwarden_data_de_duplication\src\components\DuplicateList.vue
 -->
 <template>
   <div class="bg-cool-gray-200/50 px-4 pt-4 pb-2 mb-4">
-    <!-- <div>{{ item.uri }}</div> -->
     <div>
       <simplebar>
-        <!-- <pre>{{ item }}</pre> -->
-        <!-- <div>
-          <span class="bg-blue-400 text-white inline-block px-2 rounded">{{
-            item.ids.length
-          }}</span>
-          条数据完全相同 
-        </div> -->
         <div class="flex">
           <DuplicateItemVue
             class="flex-1 max-w-50% min-w-30%"
             v-for="id in item.ids"
             :id="id"
             :sourceMode="sourceMode"
+            :diffLabels="diffLabels"
             v-model:selectedId="selectedId"
             v-model:showPassword="showPassword"
           />
@@ -62,7 +55,7 @@
   </div>
 </template>
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import simplebar from "simplebar-vue";
 import { useDataStore } from "../stores/data";
 import DuplicateItemVue from "./DuplicateItem.vue";
@@ -76,9 +69,43 @@ const props = defineProps({
 });
 
 const dataStore = useDataStore();
-const sourceMode = ref(false);
-const showPassword = ref(false);
-const selectedId = ref("");
+const sourceMode = ref(false); // 源码模式
+const showPassword = ref(false); // 是否显示密码
+const selectedId = ref(""); // 选中的id
+
+// 找到值不同的项
+const diffLabels = computed(() => {
+  const diff = props.item.ids.reduce(
+    (total, id) => {
+      const itemData = dataStore.items.find((that) => that.id === id);
+      total.folderId = total.folderId.filter(
+        (that) => that !== itemData.folderId
+      );
+      total.folderId.push(itemData.folderId);
+
+      total.name = total.name.filter((that) => that !== itemData.name);
+      total.name.push(itemData.name);
+
+      total.password = total.password.filter(
+        (that) => that !== itemData.login.password
+      );
+      total.password.push(itemData.login.password);
+
+      return total;
+    },
+    {
+      folderId: [],
+      name: [],
+      password: [],
+    }
+  );
+  return Object.keys(diff).reduce((total, key) => {
+    if (diff[key].length > 1) {
+      total.push(key);
+    }
+    return total;
+  }, []);
+});
 
 // 保留选中项
 const saveSelected = () => {
