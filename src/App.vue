@@ -2,7 +2,7 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-08 17:27:54
- * @LastEditTime: 2023-01-11 10:48:00
+ * @LastEditTime: 2023-01-12 13:26:10
  * @LastEditors: NMTuan
  * @Description: 
  * @FilePath: \bitwarden_data_de_duplication\src\App.vue
@@ -61,7 +61,7 @@ import LayoutSocialVue from "./components/LayoutSocial.vue";
 const route = useRoute();
 const mainScroll = ref();
 const mainView = ref();
-const pin = ref(localStorage.getItem("pin") === "1" ? true : false);
+const pin = ref(localStorage.getItem("pin") === "0" ? false : true);
 
 const menuClass = computed(() => {
   if (pin.value) {
