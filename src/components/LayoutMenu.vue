@@ -2,7 +2,7 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-08 17:47:14
- * @LastEditTime: 2023-01-11 13:54:30
+ * @LastEditTime: 2023-01-12 14:51:12
  * @LastEditors: NMTuan
  * @Description: 
  * @FilePath: \bitwarden_data_de_duplication\src\components\LayoutMenu.vue
@@ -39,6 +39,7 @@ const menus = ref([
     children: [
       { label: "主页", to: { name: "home" } },
       { label: "重复数据", to: { name: "duplicate" } },
+      { label: "文件夹", to: { name: "folder" } },
     ],
   },
 ]);

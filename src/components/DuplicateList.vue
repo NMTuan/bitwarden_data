@@ -2,23 +2,15 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-10 13:01:59
- * @LastEditTime: 2023-01-12 14:10:31
+ * @LastEditTime: 2023-01-12 16:44:11
  * @LastEditors: NMTuan
  * @Description: 
  * @FilePath: \bitwarden_data_de_duplication\src\components\DuplicateList.vue
 -->
 <template>
   <div class="bg-cool-gray-200/50 px-4 pt-4 pb-2 mb-4">
-    <!-- <div>{{ item.uri }}</div> -->
     <div>
       <simplebar>
-        <!-- <pre>{{ item }}</pre> -->
-        <!-- <div>
-          <span class="bg-blue-400 text-white inline-block px-2 rounded">{{
-            item.ids.length
-          }}</span>
-          条数据完全相同 
-        </div> -->
         <div class="flex">
           <DuplicateItemVue
             class="flex-1 max-w-50% min-w-30%"
@@ -86,7 +78,6 @@ const diffLabels = computed(() => {
   const diff = props.item.ids.reduce(
     (total, id) => {
       const itemData = dataStore.items.find((that) => that.id === id);
-      console.log("itemData", itemData);
       total.folderId = total.folderId.filter(
         (that) => that !== itemData.folderId
       );
