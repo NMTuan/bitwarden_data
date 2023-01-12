@@ -2,7 +2,7 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-10 20:10:43
- * @LastEditTime: 2023-01-11 14:02:47
+ * @LastEditTime: 2023-01-12 14:08:54
  * @LastEditors: NMTuan
  * @Description: 
  * @FilePath: \bitwarden_data_de_duplication\src\components\DuplicateItem.vue
@@ -27,13 +27,19 @@
           ></div>
         </template>
       </CommonItemBox>
-      <CommonItemBox title="名称">
+      <CommonItemBox
+        title="名称"
+        :class="{ 'text-red-400': diffLabels.includes('name') }"
+      >
         {{ item.name }}
       </CommonItemBox>
       <CommonItemBox title="用户名">
         {{ item.login.username }}
       </CommonItemBox>
-      <CommonItemBox title="密码">
+      <CommonItemBox
+        title="密码"
+        :class="{ 'text-red-400': diffLabels.includes('password') }"
+      >
         {{ showPassword ? item.login.password : "••••••••" }}
         <template #side>
           <div
@@ -46,7 +52,10 @@
           ></div>
         </template>
       </CommonItemBox>
-      <CommonItemBox title="文件夹">
+      <CommonItemBox
+        title="文件夹"
+        :class="{ 'text-red-400': diffLabels.includes('folderId') }"
+      >
         {{ dataStore.findFolderById(item.folderId)?.name || "无" }}
       </CommonItemBox>
       <CommonItemBox title="网址">
@@ -93,6 +102,12 @@ const props = defineProps({
   showPassword: {
     type: Boolean,
     default: false,
+  },
+  diffLabels: {
+    type: Array,
+    default() {
+      return [];
+    },
   },
 });
 
