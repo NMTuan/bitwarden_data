@@ -1,3 +1,12 @@
+<!--
+ * @Author: NMTuan
+ * @Email: NMTuan@qq.com
+ * @Date: 2023-01-12 15:54:58
+ * @LastEditTime: 2023-01-12 19:15:15
+ * @LastEditors: NMTuan
+ * @Description: 
+ * @FilePath: \bitwarden_data_de_duplication\src\components\FolderItem.vue
+-->
 <template>
   <div class="flex items-center bg-white rounded mb-2 p-4 group">
     <i class="i-ri-folder-2-line text-2xl mr-2 text-cool-gray-400"></i>

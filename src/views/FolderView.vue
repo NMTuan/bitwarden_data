@@ -10,14 +10,14 @@
 <template>
   <LayoutEmpty>
     <h1># 文件夹</h1>
-    <FolderList v-for="item in folders" :item="item"> </FolderList>
+    <FolderItem v-for="item in folders" :item="item"> </FolderItem>
   </LayoutEmpty>
 </template>
 <script setup>
 import { ref, unref, computed } from "vue";
 import LayoutEmpty from "../components/LayoutEmpty.vue";
 import { useDataStore } from "../stores/data";
-import FolderList from "../components/FolderList.vue";
+import FolderItem from "../components/FolderItem.vue";
 
 const dataStore = useDataStore();
 
