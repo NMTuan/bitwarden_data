@@ -2,7 +2,7 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-06 10:31:33
- * @LastEditTime: 2023-01-11 21:54:31
+ * @LastEditTime: 2023-01-12 19:55:01
  * @LastEditors: NMTuan
  * @Description:
  * @FilePath: \bitwarden_data_de_duplication\README.md
@@ -30,7 +30,7 @@
 
 - [x] 浏览器数据缓存，方便下次继续处理
 
-- [ ] 数据的列表展示
+- [x] 数据的列表展示
 
 - [ ] 数据编辑与删除
 
