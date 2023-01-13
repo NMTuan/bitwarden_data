@@ -2,7 +2,7 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-08 17:27:54
- * @LastEditTime: 2023-01-13 11:53:27
+ * @LastEditTime: 2023-01-13 16:40:08
  * @LastEditors: NMTuan
  * @Description: 
  * @FilePath: \bitwarden_data_de_duplication\src\App.vue
@@ -49,7 +49,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, watch } from "vue";
+import { ref, computed, onMounted, watch, provide } from "vue";
 import { useRoute } from "vue-router";
 import simplebar from "simplebar-vue";
 
@@ -77,6 +77,12 @@ const mainClass = computed(() => {
     return "";
   }
 });
+
+// 滚动主体区域
+const mainScrollTop = (value = 0) => {
+  mainScroll.value.scrollElement.scrollTop = value;
+};
+provide("mainScrollTop", mainScrollTop);
 
 onMounted(() => {
   // 滚动监听，如果子组件有 onScroll 方法，则执行
