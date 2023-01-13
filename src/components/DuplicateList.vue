@@ -2,7 +2,7 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-10 13:01:59
- * @LastEditTime: 2023-01-12 16:44:11
+ * @LastEditTime: 2023-01-13 11:53:43
  * @LastEditors: NMTuan
  * @Description: 
  * @FilePath: \bitwarden_data_de_duplication\src\components\DuplicateList.vue
@@ -12,7 +12,7 @@
     <div>
       <simplebar>
         <div class="flex">
-          <DuplicateItemVue
+          <DuplicateItem
             class="flex-1 max-w-50% min-w-30%"
             v-for="id in item.ids"
             :id="id"
@@ -58,7 +58,7 @@
 import { ref, computed } from "vue";
 import simplebar from "simplebar-vue";
 import { useDataStore } from "../stores/data";
-import DuplicateItemVue from "./DuplicateItem.vue";
+import DuplicateItem from "./DuplicateItem.vue";
 const props = defineProps({
   item: {
     type: Object,

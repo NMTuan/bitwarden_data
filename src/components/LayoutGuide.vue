@@ -2,7 +2,7 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-08 17:49:08
- * @LastEditTime: 2023-01-11 21:57:38
+ * @LastEditTime: 2023-01-13 15:36:57
  * @LastEditors: NMTuan
  * @Description: 
  * @FilePath: \bitwarden_data_de_duplication\src\components\LayoutGuide.vue
@@ -30,15 +30,21 @@
 
     <template v-if="dataStore.type === 'JSON'">
       <!-- folder -->
-      <div class="item">
-        <div class="i-ri-folder-2-line"></div>
+      <router-link
+        :to="{ name: 'folder' }"
+        class="item hover:(bg-blue-400 text-white) group"
+      >
+        <div class="i-ri-folder-2-line group-hover:(text-white)"></div>
         {{ dataStore.folders.length }}
-      </div>
+      </router-link>
       <!-- item -->
-      <div class="item">
-        <div class="i-ri-database-2-line"></div>
+      <router-link
+        :to="{ name: 'list' }"
+        class="item hover:(bg-blue-400 text-white) group"
+      >
+        <div class="i-ri-database-2-line group-hover:(text-white)"></div>
         {{ dataStore.items.length }}
-      </div>
+      </router-link>
       <!-- download -->
       <a
         :href="downloadHref"
