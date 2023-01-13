@@ -2,7 +2,7 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-13 11:37:33
- * @LastEditTime: 2023-01-13 11:48:42
+ * @LastEditTime: 2023-01-13 15:25:48
  * @LastEditors: NMTuan
  * @Description: 
  * @FilePath: \bitwarden_data_de_duplication\src\components\CommonInput.vue
@@ -15,6 +15,7 @@
       type="text"
       :value="value"
       @input="handleUpdate"
+      :placeholder="placeholder"
     />
   </div>
 </template>
@@ -22,6 +23,10 @@
 import { ref } from "vue";
 const props = defineProps({
   value: {
+    type: String,
+    default: "",
+  },
+  placeholder: {
     type: String,
     default: "",
   },

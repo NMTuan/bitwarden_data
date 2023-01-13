@@ -2,19 +2,21 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-13 11:20:34
- * @LastEditTime: 2023-01-13 15:27:23
+ * @LastEditTime: 2023-01-13 15:28:16
  * @LastEditors: NMTuan
  * @Description: 
- * @FilePath: \bitwarden_data_de_duplication\src\components\FolderDialogEdit.vue
+ * @FilePath: \bitwarden_data_de_duplication\src\components\ListDialogEdit.vue
 -->
 <template>
-  <CommonDialog :show="show" @update:show="updateShow" title="修改文件夹">
+  <CommonDialog :show="show" @update:show="updateShow" title="修改密码">
     <!-- <input type="text" v-model="data.name" /> -->
     <CommonInput
       v-model:value="data.name"
-      placeholder="文件夹名称"
+      placeholder="名称"
       ref="nameEl"
+      class="mb-2"
     />
+    <CommonSelect v-model:value="data.folderId" />
     <div class="pt-6 text-right">
       <CommonButton type="text" @click="handleCancel">取消</CommonButton>
       <CommonButton class="ml-4" type="primary" @click="handleUpdate">
@@ -29,6 +31,7 @@ import { useDataStore } from "../stores/data";
 import CommonDialog from "../components/CommonDialog.vue";
 import CommonInput from "./CommonInput.vue";
 import CommonButton from "./CommonButton.vue";
+import CommonSelect from "./CommonSelect.vue";
 
 const props = defineProps({
   show: {
@@ -53,7 +56,7 @@ const updateShow = (value) => {
 };
 
 const handleUpdate = () => {
-  dataStore.updateFolderById(data.value);
+  dataStore.updateItemById(data.value);
   updateShow(false);
 };
 const handleCancel = () => {

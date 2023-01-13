@@ -2,7 +2,7 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-09 09:33:57
- * @LastEditTime: 2023-01-13 14:01:21
+ * @LastEditTime: 2023-01-13 15:30:23
  * @LastEditors: NMTuan
  * @Description:
  * @FilePath: \bitwarden_data_de_duplication\src\stores\data.js
@@ -46,6 +46,16 @@ export const useDataStore = defineStore("data", () => {
         data.value.items.splice(index, 1);
       }
     });
+  };
+
+  // 根据 id 更新 item
+  const updateItemById = ({ id, name, folderId }) => {
+    const index = data.value.items.findIndex((item) => item.id === id);
+    if (index < 0) {
+      return;
+    }
+    data.value.items[index].name = name;
+    data.value.items[index].folderId = folderId;
   };
 
   // 根据 id 找到 文件夹名称
@@ -128,6 +138,7 @@ export const useDataStore = defineStore("data", () => {
     folders,
     items,
     removeItemById,
+    updateItemById,
     findFolderById,
     updateFolderById,
     removeFolderById,

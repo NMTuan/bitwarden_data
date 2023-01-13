@@ -2,7 +2,7 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-12 19:13:18
- * @LastEditTime: 2023-01-13 13:31:14
+ * @LastEditTime: 2023-01-13 14:04:44
  * @LastEditors: NMTuan
  * @Description: 
  * @FilePath: \bitwarden_data_de_duplication\src\components\ListItem.vue
@@ -24,7 +24,7 @@
       class="action flex items-center text-2xl transition-all opacity-0 group-hover:(opacity-100)"
     >
       <!-- <i class="i-ri-share-box-line"></i> -->
-      <!-- <i class="i-ri-edit-box-line"></i> -->
+      <i class="i-ri-edit-box-line" @click="handleEdit"></i>
       <i class="i-ri-delete-bin-2-line" @click="handleRemove"></i>
     </div>
   </div>
@@ -65,6 +65,9 @@ const icon = computed(() => {
   return className;
 });
 
+const handleEdit = () => {
+  emits("handleEdit", props.item);
+};
 const handleRemove = () => {
   emits("handleRemove", props.item);
 };

@@ -2,7 +2,7 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2022-12-26 15:57:51
- * @LastEditTime: 2023-01-13 12:10:57
+ * @LastEditTime: 2023-01-13 14:59:21
  * @LastEditors: NMTuan
  * @Description: 
  * @FilePath: \bitwarden_data_de_duplication\src\components\CommonDialog.vue
@@ -16,7 +16,7 @@
     >
       <simplebar class="simplebar h-full">
         <div
-          class="bg-cool-gray-50 mx-auto my-12vh overflow-hidden rounded p-6 w-90%"
+          class="bg-cool-gray-50 mx-auto my-12vh rounded p-6 w-90%"
           sm="w-80%"
           md="w-70%"
           lg="w-50%"
