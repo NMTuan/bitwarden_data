@@ -2,7 +2,7 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-09 09:33:57
- * @LastEditTime: 2023-01-13 13:14:41
+ * @LastEditTime: 2023-01-13 14:01:21
  * @LastEditors: NMTuan
  * @Description:
  * @FilePath: \bitwarden_data_de_duplication\src\stores\data.js
@@ -42,7 +42,9 @@ export const useDataStore = defineStore("data", () => {
     }
     ids.forEach((id) => {
       const index = data.value.items.findIndex((item) => item.id === id);
-      data.value.items.splice(index, 1);
+      if (index >= 0) {
+        data.value.items.splice(index, 1);
+      }
     });
   };
 
@@ -70,7 +72,9 @@ export const useDataStore = defineStore("data", () => {
       });
     }
     const index = data.value.folders.findIndex((folder) => folder.id === id);
-    console.log(index);
+    if (index < 0) {
+      return;
+    }
     data.value.folders.splice(index, 1);
   };
 
