@@ -2,7 +2,7 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-13 11:52:03
- * @LastEditTime: 2023-01-13 12:08:55
+ * @LastEditTime: 2023-01-13 12:58:53
  * @LastEditors: NMTuan
  * @Description: 
  * @FilePath: \bitwarden_data_de_duplication\src\components\CommonButton.vue
@@ -27,6 +27,9 @@ const className = computed(() => {
   if (props.type === "primary") {
     names.push("bg-blue-400 text-white");
     names.push("hover:(bg-blue-500)");
+  } else if (props.type === "danger") {
+    names.push("bg-red-400 text-white");
+    names.push("hover:(bg-red-500)");
   } else if (props.type === "text") {
     names.push(" hover:bg-cool-gray-200");
   }

@@ -2,7 +2,7 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-09 09:33:57
- * @LastEditTime: 2023-01-13 12:17:24
+ * @LastEditTime: 2023-01-13 13:14:41
  * @LastEditors: NMTuan
  * @Description:
  * @FilePath: \bitwarden_data_de_duplication\src\stores\data.js
@@ -60,6 +60,20 @@ export const useDataStore = defineStore("data", () => {
     data.value.folders[index].name = name;
   };
 
+  // 根据 文件夹 id 删除 文件夹
+  const removeFolderById = ({ id, count }) => {
+    if (count > 0) {
+      data.value.items.forEach((item) => {
+        if (item.folderId === id) {
+          item.folderId = null;
+        }
+      });
+    }
+    const index = data.value.folders.findIndex((folder) => folder.id === id);
+    console.log(index);
+    data.value.folders.splice(index, 1);
+  };
+
   // 处理 localStorage
   if (lsFile && lsData) {
     file.value = JSON.parse(lsFile);
@@ -112,5 +126,6 @@ export const useDataStore = defineStore("data", () => {
     removeItemById,
     findFolderById,
     updateFolderById,
+    removeFolderById,
   };
 });

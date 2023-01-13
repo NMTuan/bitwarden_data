@@ -2,7 +2,7 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-12 14:37:03
- * @LastEditTime: 2023-01-13 11:54:00
+ * @LastEditTime: 2023-01-13 12:54:54
  * @LastEditors: NMTuan
  * @Description: 
  * @FilePath: \bitwarden_data_de_duplication\src\views\FolderView.vue
@@ -10,12 +10,23 @@
 <template>
   <LayoutEmpty>
     <h1># 文件夹</h1>
-    <FolderItem v-for="item in folders" :item="item" @handle-edit="handleEdit">
+    <FolderItem
+      v-for="item in folders"
+      :item="item"
+      @handle-edit="handleEdit"
+      @handleRemove="handleRemove"
+    >
     </FolderItem>
     <FolderDialogEdit
       v-if="editDialogState"
       v-model:show="editDialogState"
       :item="editItemData"
+    />
+
+    <FolderDialogRemove
+      v-if="removeDialogState"
+      v-model:show="removeDialogState"
+      :item="removeItemData"
     />
   </LayoutEmpty>
 </template>
@@ -25,10 +36,13 @@ import LayoutEmpty from "../components/LayoutEmpty.vue";
 import { useDataStore } from "../stores/data";
 import FolderItem from "../components/FolderItem.vue";
 import FolderDialogEdit from "../components/FolderDialogEdit.vue";
+import FolderDialogRemove from "../components/FolderDialogRemove.vue";
 
 const dataStore = useDataStore();
 const editDialogState = ref(false);
 const editItemData = ref({});
+const removeDialogState = ref(false);
+const removeItemData = ref({});
 
 const folders = computed(() => {
   const counts = dataStore.items.reduce((total, item) => {
@@ -65,8 +79,12 @@ const folders = computed(() => {
 });
 
 const handleEdit = (item) => {
-  console.log("handleEdit", item);
   editItemData.value = item;
   editDialogState.value = true;
+};
+
+const handleRemove = (item) => {
+  removeItemData.value = item;
+  removeDialogState.value = true;
 };
 </script>
