@@ -2,7 +2,7 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-08 17:27:54
- * @LastEditTime: 2023-01-12 13:26:10
+ * @LastEditTime: 2023-01-13 11:53:27
  * @LastEditors: NMTuan
  * @Description: 
  * @FilePath: \bitwarden_data_de_duplication\src\App.vue
@@ -17,7 +17,7 @@
     >
       <div class="w-64 h-full">
         <simplebar class="simplebar h-full">
-          <LayoutMenuVue />
+          <LayoutMenu />
         </simplebar>
       </div>
     </div>
@@ -33,10 +33,10 @@
           <div class="flex items-center">
             <LayoutPinVuew v-model:pin="pin" />
             <div class="ml-4 flex items-center">
-              <LayoutGuideVue />
+              <LayoutGuide />
             </div>
           </div>
-          <LayoutSocialVue />
+          <LayoutSocial />
         </div>
         <div class="main w-85% max-w-6xl mx-auto mt-6 mb-32">
           <RouterView v-slot="{ Component }">
@@ -53,10 +53,10 @@ import { ref, computed, onMounted, watch } from "vue";
 import { useRoute } from "vue-router";
 import simplebar from "simplebar-vue";
 
-import LayoutMenuVue from "./components/LayoutMenu.vue";
-import LayoutGuideVue from "./components/LayoutGuide.vue";
+import LayoutMenu from "./components/LayoutMenu.vue";
+import LayoutGuide from "./components/LayoutGuide.vue";
 import LayoutPinVuew from "./components/LayoutPin.vue";
-import LayoutSocialVue from "./components/LayoutSocial.vue";
+import LayoutSocial from "./components/LayoutSocial.vue";
 
 const route = useRoute();
 const mainScroll = ref();

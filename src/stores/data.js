@@ -2,7 +2,7 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-09 09:33:57
- * @LastEditTime: 2023-01-11 14:33:25
+ * @LastEditTime: 2023-01-13 12:17:24
  * @LastEditors: NMTuan
  * @Description:
  * @FilePath: \bitwarden_data_de_duplication\src\stores\data.js
@@ -13,8 +13,10 @@ import { defineStore } from "pinia";
 export const useDataStore = defineStore("data", () => {
   const file = ref(null);
   const data = ref({});
-
   const loading = ref(false);
+  const lsFile = localStorage.getItem("bitwarden_file");
+  const lsData = localStorage.getItem("bitwarden_data");
+
   const encrypted = computed(() => data.value.encrypted);
   const passwordProtected = computed(() => data.value.passwordProtected);
   const folders = computed(() => data.value.folders || []);
@@ -52,9 +54,13 @@ export const useDataStore = defineStore("data", () => {
     return folders.value.find((folder) => folder.id === id);
   };
 
+  // 根据 文件夹 id 更新 name
+  const updateFolderById = ({ id, name }) => {
+    const index = data.value.folders.findIndex((folder) => folder.id === id);
+    data.value.folders[index].name = name;
+  };
+
   // 处理 localStorage
-  const lsFile = localStorage.getItem("bitwarden_file");
-  const lsData = localStorage.getItem("bitwarden_data");
   if (lsFile && lsData) {
     file.value = JSON.parse(lsFile);
     data.value = JSON.parse(lsData);
@@ -105,5 +111,6 @@ export const useDataStore = defineStore("data", () => {
     items,
     removeItemById,
     findFolderById,
+    updateFolderById,
   };
 });
