@@ -2,7 +2,7 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-12 19:13:18
- * @LastEditTime: 2023-01-13 14:04:44
+ * @LastEditTime: 2023-01-14 22:01:13
  * @LastEditors: NMTuan
  * @Description: 
  * @FilePath: \bitwarden_data_de_duplication\src\components\ListItem.vue
@@ -18,7 +18,7 @@
     </div>
     <div class="flex-1 flex items-center text-base" v-if="item.folderId">
       <i class="i-ri-folder-2-line text-2xl mr-4 text-cool-gray-400"></i>
-      {{ dataStore.findFolderById(item.folderId)?.name || "无" }}
+      {{ dataStore.findFolderById(item.folderId).name }}
     </div>
     <div
       class="action flex items-center text-2xl transition-all opacity-0 group-hover:(opacity-100)"
@@ -42,7 +42,7 @@ const props = defineProps({
     },
   },
 });
-const emits = defineEmits(["handleRemove"]);
+const emits = defineEmits(["handleEdit", "handleRemove"]);
 
 const dataStore = useDataStore();
 

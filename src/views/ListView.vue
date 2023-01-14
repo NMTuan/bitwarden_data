@@ -2,14 +2,14 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-12 18:39:39
- * @LastEditTime: 2023-01-13 16:39:45
+ * @LastEditTime: 2023-01-14 21:54:40
  * @LastEditors: NMTuan
  * @Description: 
  * @FilePath: \bitwarden_data_de_duplication\src\views\ListView.vue
 -->
 <template>
   <LayoutEmpty>
-    <h1># 密码库</h1>
+    <h1># {{ $t("menu.list") }}</h1>
     <ListItem
       v-for="item in dataStore.items.slice((page - 1) * limit, page * limit)"
       :item="item"

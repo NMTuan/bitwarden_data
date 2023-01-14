@@ -1,0 +1,33 @@
+{
+  "menu": {
+    "home": "home",
+    "duplicate": "duplicate data",
+    "folder": "folder",
+    "list": "list"
+  },
+  "guide": {
+    "choose": "Choose a data file",
+    "download": {
+      "label": "Download",
+      "title": "Downolad the data file"
+    }
+  },
+  "social": {
+    "language": "toggle language"
+  },
+  "list": {
+    "edit": {
+      "title": "edit",
+      "namePlaceholder": "name",
+      "folderPlaceholder": "choose folder",
+      "update": "update",
+      "cancel": "cancel"
+    },
+    "remove": {
+      "info": "Are you sure you want to delete {name}?",
+      "title": "remove",
+      "submit": "remove",
+      "cancel": "cancel"
+    }
+  }
+}

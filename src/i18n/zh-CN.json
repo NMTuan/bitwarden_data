@@ -1,0 +1,33 @@
+{
+  "menu": {
+    "home": "主页",
+    "duplicate": "重复数据",
+    "folder": "文件夹",
+    "list": "密码库"
+  },
+  "guide": {
+    "choose": "选择数据文件",
+    "download": {
+      "label": "下载",
+      "title": "下载修改后的数据"
+    }
+  },
+  "social": {
+    "language": "切换语言"
+  },
+  "list": {
+    "edit": {
+      "title": "编辑",
+      "namePlaceholder": "名称",
+      "folderPlaceholder": "选择文件夹",
+      "update": "更新",
+      "cancel": "取消"
+    },
+    "remove": {
+      "info": "确定要删除 {name} 吗？",
+      "title": "删除",
+      "submit": "删除",
+      "cancel": "取消"
+    }
+  }
+}
