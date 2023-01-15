@@ -2,7 +2,7 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-10 13:01:59
- * @LastEditTime: 2023-01-13 11:53:43
+ * @LastEditTime: 2023-01-15 19:55:10
  * @LastEditors: NMTuan
  * @Description: 
  * @FilePath: \bitwarden_data_de_duplication\src\components\DuplicateList.vue
@@ -34,19 +34,19 @@
             }"
             @click="saveSelected"
           >
-            保留选中项
+            {{ $t("duplicate.saveSelected") }}
           </button>
           <button
             class="text-cool-gray-400 hover:(bg-red-400 text-white)"
             @click="removeAll"
           >
-            全部删除
+            {{ $t("duplicate.removeAll") }}
           </button>
         </div>
         <div
           class="bg-cool-gray-50 p-1 rounded cursor-pointer hover:(bg-white)"
           @click="sourceMode = !sourceMode"
-          title="toggle source mode"
+          :title="$t('duplicate.sourceMode')"
         >
           <div class="i-ri-code-s-slash-line block text-cool-gray-400"></div>
         </div>

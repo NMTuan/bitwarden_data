@@ -2,7 +2,7 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-08 17:49:08
- * @LastEditTime: 2023-01-13 15:36:57
+ * @LastEditTime: 2023-01-14 20:45:45
  * @LastEditors: NMTuan
  * @Description: 
  * @FilePath: \bitwarden_data_de_duplication\src\components\LayoutGuide.vue
@@ -17,7 +17,7 @@
     <!-- file -->
     <CommonChooseFile
       class="item hover:(bg-blue-400 text-white) group"
-      title="Choose a data file"
+      :title="$t('guide.choose')"
     >
       <div class="i-ri-file-2-line group-hover:(text-white)"></div>
       {{ dataStore.file.name }}
@@ -50,10 +50,10 @@
         :href="downloadHref"
         :download="dataStore.file.name"
         class="item hover:(bg-blue-400 text-white) group"
-        title="Downolad the data file"
+        :title="$t('guide.download.title')"
       >
         <div class="i-ri-download-2-line group-hover:(text-white)"></div>
-        Download
+        {{ $t("guide.download.label") }}
       </a>
     </template>
     <div v-if="dataStore.loading" class="i-ri-loader-5-line animate-spin"></div>
@@ -81,8 +81,5 @@ const downloadHref = computed(() => {
   @apply rounded px-2 py-1;
   @apply bg-cool-gray-100;
   @apply transition-all;
-}
-.item:hover {
-  // @apply bg-sky-100;
 }
 </style>

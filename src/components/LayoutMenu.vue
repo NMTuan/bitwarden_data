@@ -2,7 +2,7 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-08 17:47:14
- * @LastEditTime: 2023-01-12 19:12:52
+ * @LastEditTime: 2023-01-14 20:41:28
  * @LastEditors: NMTuan
  * @Description: 
  * @FilePath: \bitwarden_data_de_duplication\src\components\LayoutMenu.vue
@@ -17,7 +17,7 @@
         <div v-for="item in menu.children">
           <router-link class="link" :to="item.to">
             <div v-if="item.icon" :class="`${item.icon} icon`"></div>
-            {{ item.label }}
+            {{ $t(item.label) }}
           </router-link>
         </div>
       </template>
@@ -37,10 +37,10 @@ const menus = ref([
   {
     label: "Bitwarden Data",
     children: [
-      { label: "主页", to: { name: "home" } },
-      { label: "重复数据", to: { name: "duplicate" } },
-      { label: "文件夹", to: { name: "folder" } },
-      { label: "密码库", to: { name: "list" } },
+      { label: "menu.home", to: { name: "home" } },
+      { label: "menu.duplicate", to: { name: "duplicate" } },
+      { label: "menu.folder", to: { name: "folder" } },
+      { label: "menu.list", to: { name: "list" } },
     ],
   },
 ]);

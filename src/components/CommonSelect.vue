@@ -2,7 +2,7 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-13 11:37:33
- * @LastEditTime: 2023-01-13 15:23:07
+ * @LastEditTime: 2023-01-14 22:17:56
  * @LastEditors: NMTuan
  * @Description: 
  * @FilePath: \bitwarden_data_de_duplication\src\components\CommonSelect.vue
@@ -20,7 +20,7 @@
           type="text"
           :value="current?.name"
           read-only=""
-          placeholder="所属文件夹"
+          :placeholder="placeholder"
         />
       </div>
       <div
@@ -60,6 +60,10 @@ import simplebar from "simplebar-vue";
 
 const props = defineProps({
   value: {
+    type: String,
+    default: "",
+  },
+  placeholder: {
     type: String,
     default: "",
   },

@@ -2,7 +2,7 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-12 15:54:58
- * @LastEditTime: 2023-01-13 12:46:39
+ * @LastEditTime: 2023-01-15 19:29:00
  * @LastEditors: NMTuan
  * @Description: 
  * @FilePath: \bitwarden_data_de_duplication\src\components\FolderItem.vue
@@ -12,7 +12,7 @@
     <i class="i-ri-folder-2-line text-2xl mr-2 text-cool-gray-400"></i>
     <div class="flex-1 flex items-center">
       <div class="flex items-center cursor-pointer">
-        {{ item.name || "无文件夹" }}
+        {{ item.name }}
       </div>
       <div class="ml-2 p-1 bg-cool-gray-50 text-cool-gray-400 rounded text-xs">
         {{ item.count }}

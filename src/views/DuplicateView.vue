@@ -2,7 +2,7 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-10 11:51:29
- * @LastEditTime: 2023-01-11 13:46:51
+ * @LastEditTime: 2023-01-15 19:40:48
  * @LastEditors: NMTuan
  * @Description: 
  * @FilePath: \bitwarden_data_de_duplication\src\views\DuplicateView.vue
@@ -10,12 +10,15 @@
 <template>
   <LayoutEmpty>
     <div class="leading-8 mb-2">
-      <h1># 重复数据</h1>
-      <p>一共找到了 {{ duplicateUriData.length }} 组重复数据。</p>
-      <p>这里的重复数据是指：URI 地址相同并且用户名也相同的数据。</p>
+      <h1># {{ $t("menu.duplicate") }}</h1>
       <p>
-        所有的操作均不会改变你选择的数据文件，如需保存操作后的数据，请点击上方的
-        download 。
+        {{ $t("duplicate.total", { count: duplicateUriData.length }) }}
+      </p>
+      <p>
+        {{ $t("duplicate.info") }}
+      </p>
+      <p>
+        {{ $t("duplicate.tip") }}
       </p>
     </div>
     <DuplicateList

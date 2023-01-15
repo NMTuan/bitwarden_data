@@ -2,7 +2,7 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-10 20:10:43
- * @LastEditTime: 2023-01-12 14:08:54
+ * @LastEditTime: 2023-01-15 19:51:57
  * @LastEditors: NMTuan
  * @Description: 
  * @FilePath: \bitwarden_data_de_duplication\src\components\DuplicateItem.vue
@@ -11,7 +11,7 @@
   <div class="p-2">
     <template v-if="!sourceMode">
       <CommonItemBox
-        title="编号"
+        :title="$t('duplicate.id')"
         @click="handleSelected"
         class="cursor-pointer"
       >
@@ -28,16 +28,17 @@
         </template>
       </CommonItemBox>
       <CommonItemBox
-        title="名称"
+        :title="$t('duplicate.name')"
         :class="{ 'text-red-400': diffLabels.includes('name') }"
       >
         {{ item.name }}
       </CommonItemBox>
-      <CommonItemBox title="用户名">
+      <CommonItemBox :title="$t('duplicate.username')">
         {{ item.login.username }}
       </CommonItemBox>
       <CommonItemBox
-        title="密码"
+        title=""
+        :title="$t('duplicate.password')"
         :class="{ 'text-red-400': diffLabels.includes('password') }"
       >
         {{ showPassword ? item.login.password : "••••••••" }}
@@ -53,12 +54,15 @@
         </template>
       </CommonItemBox>
       <CommonItemBox
-        title="文件夹"
+        :title="$t('duplicate.folder')"
         :class="{ 'text-red-400': diffLabels.includes('folderId') }"
       >
-        {{ dataStore.findFolderById(item.folderId)?.name || "无" }}
+        {{
+          dataStore.findFolderById(item.folderId)?.name ||
+          $t("duplicate.noFolder")
+        }}
       </CommonItemBox>
-      <CommonItemBox title="网址">
+      <CommonItemBox :title="$t('duplicate.uri')">
         <div v-for="uri in item.login.uris" class="truncate">
           <a :href="uri.uri" target="_blank">{{ uri.uri }}</a>
         </div>

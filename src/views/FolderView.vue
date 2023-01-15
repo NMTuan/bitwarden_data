@@ -2,14 +2,14 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-12 14:37:03
- * @LastEditTime: 2023-01-13 12:54:54
+ * @LastEditTime: 2023-01-15 19:23:00
  * @LastEditors: NMTuan
  * @Description: 
  * @FilePath: \bitwarden_data_de_duplication\src\views\FolderView.vue
 -->
 <template>
   <LayoutEmpty>
-    <h1># 文件夹</h1>
+    <h1># {{ $t("menu.folder") }}</h1>
     <FolderItem
       v-for="item in folders"
       :item="item"
@@ -32,6 +32,7 @@
 </template>
 <script setup>
 import { ref, computed } from "vue";
+import { useI18n } from "vue-i18n";
 import LayoutEmpty from "../components/LayoutEmpty.vue";
 import { useDataStore } from "../stores/data";
 import FolderItem from "../components/FolderItem.vue";
@@ -39,6 +40,7 @@ import FolderDialogEdit from "../components/FolderDialogEdit.vue";
 import FolderDialogRemove from "../components/FolderDialogRemove.vue";
 
 const dataStore = useDataStore();
+const { t } = useI18n();
 const editDialogState = ref(false);
 const editItemData = ref({});
 const removeDialogState = ref(false);
@@ -71,7 +73,7 @@ const folders = computed(() => {
 
   // 把无文件夹的加上一起处理
   data.unshift({
-    name: "无文件夹",
+    name: t("folder.noFolder"),
     count: counts.null,
   });
 

@@ -2,7 +2,7 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-13 12:52:22
- * @LastEditTime: 2023-01-13 13:06:11
+ * @LastEditTime: 2023-01-15 19:37:10
  * @LastEditors: NMTuan
  * @Description: 
  * @FilePath: \bitwarden_data_de_duplication\src\components\FolderDialogRemove.vue
@@ -11,24 +11,28 @@
   <CommonDialog
     :show="show"
     @update:show="updateShow"
-    title="删除文件夹"
+    :title="$t('folder.remove.title')"
     closeOnClickModal
   >
     <div class="leading-8">
-      <p v-if="item.count === 0">当前文件夹为空，</p>
+      <p v-if="item.count === 0">{{ $t("folder.remove.empty") }}</p>
       <p v-else>
-        检测到当前文件夹有
-        {{ item.count }}
-        条数据，删除文件夹后数据将归属于“无文件夹”，
+        {{ $t("folder.remove.noEmpty", { count: item.count }) }}
       </p>
-      <p>
-        确定要删除 <span class="text-blue-400">{{ item.name }}</span> 吗？
-      </p>
+      <p
+        v-html="
+          $t('folder.remove.info', {
+            name: `<span class=text-blue-400>${item.name}</span>`,
+          })
+        "
+      ></p>
     </div>
     <div class="pt-6 text-right">
-      <CommonButton type="text" @click="handleCancel">取消</CommonButton>
+      <CommonButton type="text" @click="handleCancel">{{
+        $t("folder.remove.cancel")
+      }}</CommonButton>
       <CommonButton class="ml-4" type="danger" @click="handleRemove">
-        删除
+        {{ $t("folder.remove.submit") }}
       </CommonButton>
     </div>
   </CommonDialog>
