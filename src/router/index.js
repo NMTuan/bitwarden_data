@@ -2,15 +2,16 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-08 17:27:54
- * @LastEditTime: 2023-01-12 19:12:46
+ * @LastEditTime: 2023-01-15 21:17:44
  * @LastEditors: NMTuan
  * @Description:
  * @FilePath: \bitwarden_data_de_duplication\src\router\index.js
  */
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHashHistory } from "vue-router";
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  // history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(),
   routes: [
     {
       path: "/",
