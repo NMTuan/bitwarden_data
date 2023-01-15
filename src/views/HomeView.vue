@@ -2,7 +2,7 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-08 17:27:54
- * @LastEditTime: 2023-01-15 20:38:22
+ * @LastEditTime: 2023-01-15 20:54:45
  * @LastEditors: NMTuan
  * @Description: 
  * @FilePath: \bitwarden_data_de_duplication\src\views\HomeView.vue
@@ -47,6 +47,13 @@
     <p>{{ $t("home.use.info[2]") }}</p>
     <p>{{ $t("home.use.info[3]") }}</p>
     <p>{{ $t("home.use.info[4]") }}</p>
+    <p
+      class="mt-2 p-4 rounded bg-red-50 text-red-600 border border-red-200 first-line:font-bold"
+    >
+      {{ $t("home.use.warning[0]") }}<br />
+      {{ $t("home.use.warning[1]") }}<br />
+      {{ $t("home.use.warning[2]") }}
+    </p>
 
     <h2>## {{ $t("home.selfHost.title") }}</h2>
     <dl>

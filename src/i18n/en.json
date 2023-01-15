@@ -98,6 +98,11 @@
         "If the data is loaded successfully, you will see the relevant data information at the top of the page.",
         "At this time, you can choose the function you want in the left menu.",
         "Finally, after processing the data, remember to click the download button at the head of the page to download the processed data."
+      ],
+      "warning": [
+        "warn",
+        "Please make sure that the data you export from Bitwarden can be imported into Bitwarden normally without any processing, and the data is complete.",
+        "This project cannot guarantee the security of your data, please back up your data yourself."
       ]
     },
     "selfHost": {
