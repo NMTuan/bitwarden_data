@@ -29,5 +29,84 @@
       "submit": "remove",
       "cancel": "cancel"
     }
+  },
+  "folder": {
+    "noFolder": "no folder",
+    "edit": {
+      "title": "edit",
+      "placeholder": "folder name",
+      "update": "update",
+      "cancel": "cancel"
+    },
+    "remove": {
+      "empty": "current folder is empty,",
+      "noEmpty": "It is detected that there is {count} piece of data in the current folder. After deleting the folder, the data will belong to \"No Folder\",",
+      "info": "Are you sure you want to delete {name}?",
+      "title": "remove",
+      "submit": "remove",
+      "cancel": "cancel"
+    }
+  },
+  "duplicate": {
+    "total": "{count} sets of duplicates were found.",
+    "info": "Duplicate data refers to data with the same URI address and the same username.",
+    "tip": "All operations will not change the data file you selected, if you want to save the data after operation, please click download above.",
+    "saveSelected": "keep selected",
+    "removeAll": "remove all",
+    "sourceMode": "toggle source mode",
+    "id": "id",
+    "name": "name",
+    "username": "username",
+    "password": "password",
+    "folder": "folder",
+    "noFolder": "none",
+    "uri": "uri"
+  },
+  "empty": {
+    "use": "use",
+    "tip": "Please select your Bitwarden data first",
+    "supported": "Only unprotected json format is supported"
+  },
+  "home": {
+    "info": [
+      "This is a small project to curate {bitwarden} data.",
+      "The project is completely offline, you can operate it directly on this site, or go to {github} to download the source code and build it yourself."
+    ],
+    "background": {
+      "title": "background",
+      "info": [
+        "Under normal circumstances, the data in Bitwarden will not be duplicated.",
+        "But because I have done data migration in various password management software, resulting in duplicate data.",
+        "Although repeated data does not affect the use, it is uncomfortable after all. Taking advantage of some time a few years ago, there was this project."
+      ]
+    },
+    "feature": {
+      "title": "feature",
+      "list": [
+        "Data import and export",
+        "Duplicate data processing",
+        "Browser data cache, convenient to continue processing next time",
+        "List data and folders",
+        "Editing and deleting of data and folders"
+      ]
+    },
+    "use": {
+      "title": "use",
+      "info": [
+        "First, you need to export Bitwarden data to json format.",
+        "Then select your json data file below.",
+        "If the data is loaded successfully, you will see the relevant data information at the top of the page.",
+        "At this time, you can choose the function you want in the left menu.",
+        "Finally, after processing the data, remember to click the download button at the head of the page to download the processed data."
+      ]
+    },
+    "selfHost": {
+      "title": "selfHost",
+      "info": "The project is built using the following front-end stack, which requires you to have a certain front-end foundation."
+    },
+    "sponsors": {
+      "title": "sponsors",
+      "info": "If you think this project is helpful to you, welcome to "
+    }
   }
 }

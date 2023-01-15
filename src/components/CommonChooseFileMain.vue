@@ -32,7 +32,7 @@
       "
     >
       <div class="i-ri-error-warning-line text-2xl mr-2 text-red-500"></div>
-      Only unprotected json format is supported
+      {{ $t("empty.supported") }}
     </div>
     <!-- success -->
     <div

@@ -2,7 +2,7 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-08 17:27:54
- * @LastEditTime: 2023-01-13 15:34:58
+ * @LastEditTime: 2023-01-15 20:38:22
  * @LastEditors: NMTuan
  * @Description: 
  * @FilePath: \bitwarden_data_de_duplication\src\views\HomeView.vue
@@ -11,48 +11,46 @@
 <template>
   <div class="leading-8">
     <h1># Bitwarden Data</h1>
-    <p>
-      这是一个整理
-      <a href="https://bitwarden.com/" target="_blank"> Bitwarden </a>
-      数据的小项目。
-    </p>
-    <p>
-      整个项目完全离线，你可以直接在本站操作，也可以去
-      <a href="https://github.com/NMTuan/bitwarden_data" target="_blank">
-        GitHub
-      </a>
-      下载源码自行搭建使用。
-    </p>
+    <p
+      v-html="
+        $t('home.info[0]', {
+          bitwarden: `<a href=https://bitwarden.com/ target=_blank> Bitwarden </a>`,
+        })
+      "
+    ></p>
+    <p
+      v-html="
+        $t('home.info[1]', {
+          github: `<a href=https://github.com/NMTuan/bitwarden_data target=_blank> GitHub </a>`,
+        })
+      "
+    ></p>
 
-    <h2>## 背景</h2>
-    <p>正常情况下 Bitwarden 中的数据是不会重复的。</p>
-    <p>但由于我在多种密码管理软件中做过数据迁移，导致出现重复数据。</p>
-    <p>
-      虽然重复数据不怎么影响使用，但终究是不舒服。趁着年前有点时间，就有了这个项目。
-    </p>
+    <h2>## {{ $t("home.background.title") }}</h2>
+    <p>{{ $t("home.background.info[0]") }}</p>
+    <p>{{ $t("home.background.info[1]") }}</p>
+    <p>{{ $t("home.background.info[2]") }}</p>
 
-    <h2>## 功能</h2>
+    <h2>## {{ $t("home.feature.title") }}</h2>
     <ul>
-      <li class="done">数据的导入导出</li>
-      <li class="done">重复数据的处理</li>
-      <li class="done">浏览器数据缓存，方便下次继续处理</li>
-      <li class="done">数据的列表展示</li>
-      <li class="done">数据编辑与删除</li>
+      <li class="done">{{ $t("home.feature.list[0]") }}</li>
+      <li class="done">{{ $t("home.feature.list[1]") }}</li>
+      <li class="done">{{ $t("home.feature.list[2]") }}</li>
+      <li class="done">{{ $t("home.feature.list[3]") }}</li>
+      <li class="done">{{ $t("home.feature.list[4]") }}</li>
     </ul>
 
-    <h2>## 使用</h2>
-    <p>首先，需要你导出 Bitwarden 数据为 json 格式。</p>
-    <p>然后在下方选择你的 json 数据文件。</p>
+    <h2>## {{ $t("home.use.title") }}</h2>
+    <p>{{ $t("home.use.info[0]") }}</p>
+    <p>{{ $t("home.use.info[1]") }}</p>
     <CommonChooseFileMain />
-    <p>如果数据加载成功，你将会在页面正上方看到相关数据信息。</p>
-    <p>这时候你可以在左侧菜单中选择你想要的功能了。</p>
-    <p>
-      最后，处理完数据之后，记得点击页面头部的 download 按钮，下载处理后的数据。
-    </p>
+    <p>{{ $t("home.use.info[2]") }}</p>
+    <p>{{ $t("home.use.info[3]") }}</p>
+    <p>{{ $t("home.use.info[4]") }}</p>
 
-    <h2>## 自建</h2>
+    <h2>## {{ $t("home.selfHost.title") }}</h2>
     <dl>
-      <dt>整个项目使用以下技术栈搭建，需要你有一定的前端基础。</dt>
+      <dt>{{ $t("home.selfHost.info") }}</dt>
       <dd>
         <a href="https://vitejs.dev/" target="_blank"> vite </a>
         <a href="https://vuejs.org/" target="_blank"> vue </a>
@@ -68,19 +66,19 @@
       </dd>
     </dl>
     <pre>
-<span># 克隆项目</span>
+<span># clone</span>
 git clone https://github.com/NMTuan/bitwarden_data.git
 cd bitwarden_data
 
-<span># 初始化依赖</span>
+<span># init</span>
 yarn install <span># or npm install</span>
 
-<span># 启动</span>
+<span># run</span>
 yarn dev <span># or npm run dev</span></pre>
 
-    <h2>## 支持</h2>
+    <h2>## {{ $t("home.sponsors.title") }}</h2>
     <p>
-      如果你觉得此项目对你有帮助，欢迎
+      {{ $t("home.sponsors.info") }}
       <a href="https://github.com/NMTuan/bitwarden_data" target="_blank">
         GitHub Star
       </a>

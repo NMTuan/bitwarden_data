@@ -2,23 +2,29 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-13 11:20:34
- * @LastEditTime: 2023-01-13 15:27:23
+ * @LastEditTime: 2023-01-15 19:30:10
  * @LastEditors: NMTuan
  * @Description: 
  * @FilePath: \bitwarden_data_de_duplication\src\components\FolderDialogEdit.vue
 -->
 <template>
-  <CommonDialog :show="show" @update:show="updateShow" title="修改文件夹">
+  <CommonDialog
+    :show="show"
+    @update:show="updateShow"
+    :title="$t('folder.edit.title')"
+  >
     <!-- <input type="text" v-model="data.name" /> -->
     <CommonInput
       v-model:value="data.name"
-      placeholder="文件夹名称"
+      :placeholder="$t('folder.edit.placeholder')"
       ref="nameEl"
     />
     <div class="pt-6 text-right">
-      <CommonButton type="text" @click="handleCancel">取消</CommonButton>
+      <CommonButton type="text" @click="handleCancel">{{
+        $t("folder.edit.cancel")
+      }}</CommonButton>
       <CommonButton class="ml-4" type="primary" @click="handleUpdate">
-        更新
+        {{ $t("folder.edit.update") }}
       </CommonButton>
     </div>
   </CommonDialog>

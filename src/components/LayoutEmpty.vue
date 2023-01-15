@@ -2,7 +2,7 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-10 11:55:41
- * @LastEditTime: 2023-01-11 21:57:30
+ * @LastEditTime: 2023-01-15 19:59:32
  * @LastEditors: NMTuan
  * @Description: 
  * @FilePath: \bitwarden_data_de_duplication\src\components\LayoutEmpty.vue
@@ -14,8 +14,8 @@
         ['Password protected', 'Account backup', ''].includes(dataStore.type)
       "
     >
-      <h2>## 使用</h2>
-      <p>请先选择你的 Bitwarden 数据</p>
+      <h2>## {{ $t("empty.use") }}</h2>
+      <p>{{ $t("empty.tip") }}</p>
       <CommonChooseFileMain />
     </template>
     <slot v-else />
