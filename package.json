@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "pinia": "^2.0.28",
-    "simplebar-vue": "^1.8.0-alpha.0",
+    "simplebar-vue": "^2.3.3",
     "throttle-debounce": "^5.0.0",
     "vue": "^3.2.45",
     "vue-i18n": "9",
