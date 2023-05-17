@@ -10,7 +10,8 @@
     "download": {
       "label": "Download",
       "title": "Downolad the data file"
-    }
+    },
+    "clear": "clear data"
   },
   "social": {
     "language": "toggle language"

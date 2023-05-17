@@ -2,9 +2,9 @@
  * @Author: NMTuan
  * @Email: NMTuan@qq.com
  * @Date: 2023-01-08 17:49:08
- * @LastEditTime: 2023-01-14 20:45:45
- * @LastEditors: NMTuan
- * @Description: 
+ * @LastEditTime: 2023-05-17 22:23:46
+ * @LastEditors: Please set LastEditors
+ * @Description:
  * @FilePath: \bitwarden_data_de_duplication\src\components\LayoutGuide.vue
 -->
 <template>
@@ -55,6 +55,13 @@
         <div class="i-ri-download-2-line group-hover:(text-white)"></div>
         {{ $t("guide.download.label") }}
       </a>
+      <a
+        class="item hover:(bg-blue-400 text-white) group cursor-pointer"
+        @click="clearData"
+      >
+        <div class="i-ri-delete-bin-6-line group-hover:(text-white)"></div>
+        {{ $t("guide.clear") }}
+      </a>
     </template>
     <div v-if="dataStore.loading" class="i-ri-loader-5-line animate-spin"></div>
   </div>
@@ -64,6 +71,11 @@ import { computed } from "vue";
 import { useDataStore } from "../stores/data";
 import CommonChooseFile from "./CommonChooseFile.vue";
 const dataStore = useDataStore();
+
+const clearData = () => {
+  localStorage.clear();
+  history.go(0);
+};
 
 const downloadHref = computed(() => {
   const blobURL = new Blob([JSON.stringify(dataStore.data)], {

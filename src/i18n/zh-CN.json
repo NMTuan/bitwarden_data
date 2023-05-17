@@ -10,7 +10,8 @@
     "download": {
       "label": "下载",
       "title": "下载修改后的数据"
-    }
+    },
+    "clear": "清除数据"
   },
   "social": {
     "language": "切换语言"
