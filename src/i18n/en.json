@@ -11,6 +11,10 @@
       "label": "Download",
       "title": "Downolad the data file"
     },
+    "download-no-duplicate": {
+      "label": "Download Unique",
+      "title": "Download Unique(Distinct by name、url、username、passwd)"
+    },
     "clear": "clear data"
   },
   "social": {

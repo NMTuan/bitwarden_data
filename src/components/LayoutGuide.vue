@@ -55,15 +55,15 @@
         <div class="i-ri-download-2-line group-hover:(text-white)"></div>
         {{ $t("guide.download.label") }}
       </a>
-      <!-- download -->
+      <!-- download-no-duplicate -->
       <a
         :href="downloadHrefNew"
         :download="dataStore.file.name"
         class="item hover:(bg-blue-400 text-white) group"
-        :title="$t('guide.download.title') + 'no-duplicate'"
+        :title="$t('guide.download-no-duplicate.title')"
       >
         <div class="i-ri-download-2-line group-hover:(text-white)"></div>
-        {{ $t("guide.download.label") + "根据名字,url,账号密码去重" }}
+        {{ $t("guide.download-no-duplicate.label") }}
       </a>
       <a
         class="item hover:(bg-blue-400 text-white) group cursor-pointer"

@@ -11,6 +11,10 @@
       "label": "下载",
       "title": "下载修改后的数据"
     },
+    "download-no-duplicate": {
+      "label": "下载唯一数据",
+      "title": "下载唯一数据(通过name、url、username、passwd去重)"
+    },
     "clear": "清除数据"
   },
   "social": {
